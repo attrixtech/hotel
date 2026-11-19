@@ -488,15 +488,15 @@
                                         <h3>Sign in your account</h3>
                                     </div>
                                     <div class="mb-3">
-                                        <label for="email" class="form-label">Email</label>
-                                        <input type="email" name="email" class="form-control @error('email') is-invalid @enderror" value="{{ old('email') }}" placeholder="type your email">
+                                        <label for="login-email" class="form-label">Email</label>
+                                        <input id="login-email" type="email" name="email" class="form-control @error('email') is-invalid @enderror" value="{{ old('email') }}" placeholder="type your email">
                                         @error('email')
                                             <span class="error invalid-feedback">{{ $message }}</span>
                                         @enderror
                                     </div>
                                     <div class="mb-3">
-                                        <label for="password" class="form-label">Password</label>
-                                        <input type="password" class="form-control @error('password') is-invalid @enderror" name="password" placeholder="type your password">
+                                        <label for="login-password" class="form-label">Password</label>
+                                        <input id="login-password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" placeholder="type your password">
                                         @error('password')
                                             <span class="error invalid-feedback">{{ $message }}</span>
                                         @enderror
@@ -507,9 +507,18 @@
                                         Remember my preference</label>
                                     </div>
                                     <div>
-                                        <button type="submit" class="btn btn-primary w-100 mt-2">Sign In</button>
-                                        
+                                        <button id="login-submit" type="submit" class="btn btn-primary w-100 mt-2">Sign In</button>
+                                    </div>
 
+                                    <div class="mt-3 pt-3 border-top">
+                                        <p class="small text-muted mb-2">Quick Login (Seeded Accounts):</p>
+                                        <div class="d-flex flex-wrap gap-2">
+                                            <a href="#" class="btn btn-sm btn-outline-secondary demo-login-link" data-email="superadmin@thrumble.hotel" data-password="password">Super Admin</a>
+                                            <a href="#" class="btn btn-sm btn-outline-secondary demo-login-link" data-email="admin@thrumble.hotel" data-password="password">Admin</a>
+                                            <a href="#" class="btn btn-sm btn-outline-secondary demo-login-link" data-email="manager@thrumble.hotel" data-password="password">Manager</a>
+                                            <a href="#" class="btn btn-sm btn-outline-secondary demo-login-link" data-email="cashier@thrumble.hotel" data-password="password">Cashier</a>
+                                            <a href="#" class="btn btn-sm btn-outline-secondary demo-login-link" data-email="staff@thrumble.hotel" data-password="password">Staff</a>
+                                        </div>
                                     </div>
                             
                                     <div>
@@ -534,5 +543,15 @@
 
         <script src="/1sday/js/bootstrap.esm.min.js"></script>
         <script src="{{ mix('js/app.js') }}" defer></script>
+        <script>
+            document.querySelectorAll('.demo-login-link').forEach(function (link) {
+                link.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.getElementById('login-email').value = this.dataset.email;
+                    document.getElementById('login-password').value = this.dataset.password;
+                    document.getElementById('login-submit').click();
+                });
+            });
+        </script>
     </body>
 </html>
