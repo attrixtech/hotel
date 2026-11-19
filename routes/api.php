@@ -39,7 +39,7 @@ use App\Http\Controllers\Api\V1\ExpenseController as ExpenseControllerV1;
 Api Bank Version Group Route
 _______________________________________________________________________
 */
-Route::group(['prefix' => 'v1'], function(){
+Route::group(['prefix' => 'v1', 'as' => 'api.v1.'], function(){
     Route::resource('/bank', BankControllerV1::class);
 
     Route::resource('/room',RoomControllerV1::class);
@@ -60,11 +60,11 @@ Route::group(['prefix' => 'v1'], function(){
 
     Route::resource('employee', EmployeeControllerV1::class);
 
-    Route::resource('/income/category', IncomeCategoryControllerV1::class);
+    Route::resource('/income/category', IncomeCategoryControllerV1::class)->names('income.category');
 
     Route::resource('income', IncomeControllerV1::class);
 
-    Route::resource('/expense/category', ExpenseCategoryControllerV1::class);
+    Route::resource('/expense/category', ExpenseCategoryControllerV1::class)->names('expense.category');
 
     Route::resource('expense', ExpenseControllerV1::class);
     

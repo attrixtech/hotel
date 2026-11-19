@@ -218,7 +218,7 @@ Route::group(['middleware' => 'auth'],function(){
     Route::get('/income/category/{id}/restore', [IncomeCategoryController::class, 'restore']);
     Route::get('/income/category/restoreAll', [IncomeCategoryController::class, 'restoreAll']);
     Route::get('/income/category/emptyTrash', [IncomeCategoryController::class, 'emptyTrash']);
-    Route::resource('/income/category', IncomeCategoryController::class);
+    Route::resource('/income/category', IncomeCategoryController::class)->names('income.category');
 
     /*Income Routes*/
     Route::get('/income/trash', [IncomeController::class, 'trash']);
@@ -241,7 +241,7 @@ Route::group(['middleware' => 'auth'],function(){
     Route::get('/expense/category/{id}/restore', [ExpenseCategoryController::class, 'restore']);
     Route::get('/expense/category/restoreAll', [ExpenseCategoryController::class, 'restoreAll']);
     Route::get('/expense/category/emptyTrash', [ExpenseCategoryController::class, 'emptyTrash']);
-    Route::resource('/expense/category', ExpenseCategoryController::class);
+    Route::resource('/expense/category', ExpenseCategoryController::class)->names('expense.category');
 
     /*Expense Routes*/
     Route::get('/expense/trash', [ExpenseController::class, 'trash']);
