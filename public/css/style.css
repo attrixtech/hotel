@@ -2,7 +2,6 @@
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
-	overflow: hidden;
 }
 .loginOption{
 	margin-top:50px;
@@ -14,15 +13,15 @@
 	position: absolute;
 	left: 0;
 	top:2%;
+	overflow: hidden;
 }
-img{
+.banner1 img, .banner3 img, .banner4 img{
 	width: 120%;
 	position: absolute;
 	left: 50%;
 	top: 50%;
 	transform: translate(-50% ,-50%);
 	animation: zoom_out 3s linear infinite;
-
 }
 @keyframes zoom_out{
 	100%{
@@ -163,25 +162,57 @@ img{
 
 body{
     background-color: #E4ECFC;
-    overflow: hidden;
+    min-height: 100vh;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
-.left
-{
-    /* width: 100%; */
-    height: 100vh;
+.left{
     background-color: #fff;
-    clip-path: polygon(0 0, 95% 0, 67% 100%, 0% 100%);
+    padding: 2rem 1.25rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .left-headig{
-    margin-top: 40px;
+    margin-top: 0.5rem;
+}
+
+.left-img{
+    margin-top: 1.25rem;
+    text-align: center;
 }
 
 .left-img img{
+    max-width: 100%;
+    height: auto;
+    max-height: 180px;
+    object-fit: contain;
+}
 
-    height: 280px !important;
-    width: 330px !important;
-    position: relative;
-    margin-top: 30px;
+.right{
+    padding: 2rem 1rem;
+}
+
+@media (min-width: 768px) {
+    .left{
+        min-height: 100vh;
+        clip-path: polygon(0 0, 95% 0, 67% 100%, 0% 100%);
+        padding: 2.5rem 2.5rem 2.5rem 1.5rem;
+        align-items: flex-start;
+    }
+
+    .left-headig{
+        margin-top: 2rem;
+    }
+
+    .left-img img{
+        max-height: 260px;
+    }
+
+    .right{
+        padding: 2rem 1.5rem;
+    }
 }

@@ -450,12 +450,12 @@
             </div>
         </div> --}}
 
-        <div class="row">
-            <div class="col-md-4">
+        <div class="row g-0 min-vh-100">
+            <div class="col-12 col-md-5 col-lg-4">
                 <div class="left">
-                    <div class="col-md-9 text-center">
-                        <div class="container">
-                            <div class="d-flex flex-column  pt-5">
+                    <div class="col-12 col-md-10 text-center mx-auto mx-md-0">
+                        <div class="container px-2">
+                            <div class="d-flex flex-column pt-2 pt-md-4">
                                 <div class="left-headig">
                                     <h1>thrumble.hotel</h1>
                                 </div>
@@ -463,25 +463,25 @@
                                     <h4>Welcome Back!</h4>
                                 </div>
                                 <div>
-                                    <p class="">
+                                    <p class="mb-0">
                                         The great advantage of a hotel is that it is a refuge from home life.
                                     </p>
                                 </div>
                             </div>
                         </div>
-                        <div class="left-img">
+                        <div class="left-img d-none d-sm-block">
                             <img src="{{asset('img/bg-01.png')}}"
-                            alt="logo"  class="">
+                            alt="logo" class="img-fluid">
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div class="col-md-8 m-auto">
-                <div class="right">
+            <div class="col-12 col-md-7 col-lg-8 d-flex align-items-center">
+                <div class="right w-100">
                     <div class="container">
-                        <div class="row">
-                            <div class="col-md-6 m-auto">
+                        <div class="row justify-content-center">
+                            <div class="col-12 col-sm-10 col-md-9 col-lg-7 col-xl-6">
                                 <form method="post" action="{{ route('login') }}">
                                     @csrf
                                     <div class="text-center py-3">
